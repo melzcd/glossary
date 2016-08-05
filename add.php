@@ -20,13 +20,13 @@ function AddGlossary ($db,$glossary_name,$glossary_full, $glossary_cat,$glossary
 $db = null;
 	};
 
-	//Алфавит
-	function ABC (){
-		$abc = array();
-		foreach (range(chr(0xC0), chr(0xDF)) as $b)
-				$abc[] = iconv('CP1251', 'UTF-8', $b);
-		return $abc;
-	}
+//Алфавит
+function ABC (){
+	$abc = array();
+	foreach (range(chr(0xC0), chr(0xDF)) as $b)
+			$abc[] = iconv('CP1251', 'UTF-8', $b);
+	return $abc;
+}
 
 $glossary_name = $_REQUEST['glossary_name'];
 $glossary_full = $_REQUEST['glossary_full'];
@@ -139,8 +139,6 @@ if (isset($_POST['saveGlossary']))
 	<!-- /.row -->
 	</div>
     <!-- /.container -->
-
-
 
       <!-- /.container -->
     <div class="container">
