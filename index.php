@@ -96,12 +96,12 @@ $db = null;
                         <a href="#">Сервисы</a>
                     </li>
                 </ul>
-								<form class="navbar-form navbar-left" role="search" action="/search.php" method="GET">
-  							<div class="form-group input-group-sm" >
-    					<input type="text" class="form-control" placeholder="Поиск" name="q">
-  				</div>
-  			<button type="submit" class="btn btn-default btn-sm" >Отправить</button>
-			</form>
+		<form class="navbar-form navbar-left" role="search" action="/search.php" method="GET">
+			<div class="form-group input-group-sm" >
+			<input type="text" class="form-control" placeholder="Поиск" name="q">
+			</div>
+		<button type="submit" class="btn btn-default btn-sm" >Отправить</button>
+		</form>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -117,8 +117,8 @@ $db = null;
 	<div class="row">
 		<div class="col-lg-12">
 			<ul class="pagination">
-				<?php foreach (ViewABC($db) as $value): ?>
-			<li><a href=?glossary=<?php echo $value['glossary_abc']; ?>><?php echo $value['glossary_abc']; ?></a></li>
+			<?php foreach (ViewABC($db) as $value): ?>
+				<li><a href=?glossary=<?php echo $value['glossary_abc']; ?>><?php echo $value['glossary_abc']; ?></a></li>
 			<?php endforeach; ?>
 			</ul>
 		</div>
@@ -130,17 +130,14 @@ $db = null;
         <div class="col-lg-12">
           <?php echo $value['glossary_full']; ?>
           </div>
-					<div class="col-xs-6 col-md-4"><h5><small>Вторичный текст</small></h5></div>
-					<div class="col-xs-6 col-md-4"><h5><small>Вторичный текст</small></h5></div>
-					<div class="col-xs-6 col-md-4"><h5><small>Вторичный текст</small></h5></div>
-      </div>
+		<div class="col-xs-6 col-md-4"><h5><small>Вторичный текст</small></h5></div>
+		<div class="col-xs-6 col-md-4"><h5><small>Вторичный текст</small></h5></div>
+		<div class="col-xs-6 col-md-4"><h5><small>Вторичный текст</small></h5></div>
+      	</div>
       </div>
 <?php endforeach; ?>
 </div>
     <!-- /.container -->
-
-
-
 
       <!-- /.container -->
     <div class="container">
@@ -151,7 +148,7 @@ $db = null;
         <footer>
             <div class="row">
                 <div class="col-lg-12">
-                    <p>Copyright &copy; Судебный департамент 2015</p>
+                    <p>Copyright &copy; zcdteam</p>
                 </div>
             </div>
         </footer>
