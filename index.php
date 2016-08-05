@@ -16,9 +16,9 @@ function ViewGlossary ($db,$glossary_abc,$sql) {
 			$stmt = $db->prepare($sql);
 			$stmt->bindParam(':glossary_abc', $glossary_abc);
 		}
-	$stmt->execute();
-    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-    return $row;
+		$stmt->execute();
+		$row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    	return $row;
 	}
 	catch(PDOException $e) {
 		echo $e->getMessage();
@@ -39,8 +39,6 @@ $db = null;
 			}
 	$db = null;
 		};
-
-
 
 ?>
 <!DOCTYPE html>
