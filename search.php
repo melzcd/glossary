@@ -28,18 +28,18 @@ $resultS = array();
 
 	          if ( ! empty($result["matches"]) ) { // если есть результаты поиска - обрабатываем их
 	              foreach ( $result["matches"] as $product => $info ) {
-											foreach (ViewGlossary ($db,$product) as $value) {
-												//var_dump(array_push($resultS,$value['glossary_name'],$value['glossary_full'] ));
-												echo '
-												<div class="container">
-												    <div class="row">
-												      <div class="col-lg-12"><h3><p>'.$value['glossary_name'].'</p></h3>
-												        <div class="col-lg-12">'.$value['glossary_full'].'</div>
-																	</div>
-																</div>
-														</div>
-												</div>';
-											};
+			foreach (ViewGlossary ($db,$product) as $value) {
+				//var_dump(array_push($resultS,$value['glossary_name'],$value['glossary_full'] ));
+				echo '
+				<div class="container">
+				    <div class="row">
+				      <div class="col-lg-12"><h3><p>'.$value['glossary_name'].'</p></h3>
+				        <div class="col-lg-12">'.$value['glossary_full'].'</div>
+				</div>
+			</div>
+		</div>
+	</div>';
+			};
 	                    //echo $product . "<br />"; // просто выводим id найденных товаров
 	              }
 	          }
@@ -47,29 +47,28 @@ $resultS = array();
 
 	  //exit;
 
-		//Выводит список слов
-		function ViewGlossary ($db,$product) {
-			try {
-				if (empty($product)) {
-					echo 'Вы не ввели ни одного поисвого слова';
-				}
-				else {
-					$sql = "SELECT glossary_name,glossary_full,glossary_cat FROM glossary_gas WHERE glossary_id = :glossary_id";
-					$stmt = $db->prepare($sql);
-					$stmt->bindParam(':glossary_id', $product);
-				}
-				$stmt->execute();
-		    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
-		    return $row;
-			}
-			catch(PDOException $e) {
-				echo $e->getMessage();
-				}
-		$db = null;
-			};
+//Выводит список слов
+function ViewGlossary ($db,$product) {
+	try {
+		if (empty($product)) {
+			echo 'Вы не ввели ни одного поисвого слова';
+		}
+		else {
+			$sql = "SELECT glossary_name,glossary_full,glossary_cat FROM glossary_gas WHERE glossary_id = :glossary_id";
+			$stmt = $db->prepare($sql);
+			$stmt->bindParam(':glossary_id', $product);
+		}
+		$stmt->execute();
+    $row = $stmt->fetchAll(PDO::FETCH_ASSOC);
+    return $row;
+	}
+	catch(PDOException $e) {
+		echo $e->getMessage();
+		}
+$db = null;
+	};
 
-
-	?>
+?>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -124,12 +123,12 @@ $resultS = array();
                         <a href="#">Сервисы</a>
                     </li>
                 </ul>
-								<form class="navbar-form navbar-left" role="search" action="/search.php" method="GET">
-  							<div class="form-group input-group-sm" >
-    					<input type="text" class="form-control" placeholder="Поиск" name="q">
-  				</div>
-  			<button type="submit" class="btn btn-default btn-sm" >Отправить</button>
-			</form>
+		<form class="navbar-form navbar-left" role="search" action="/search.php" method="GET">
+  			<div class="form-group input-group-sm" >
+    				<input type="text" class="form-control" placeholder="Поиск" name="q">
+  			</div>
+  		<button type="submit" class="btn btn-default btn-sm" >Отправить</button>
+		</form>
             </div>
             <!-- /.navbar-collapse -->
         </div>
@@ -141,13 +140,9 @@ $resultS = array();
     <!-- /.container -->
 
 
-
-
       <!-- /.container -->
     <div class="container">
-
         <hr>
-
         <!-- Footer -->
         <footer>
             <div class="row">
